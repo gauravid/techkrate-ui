@@ -729,7 +729,7 @@ const AboutUs = () => {
     <directionalLight
       position={[2, 4, 5]}
       intensity={2}
-      color={"#143CCF"}
+      color={"#1d4ed8"}
     />
 
     {/* Model */}
