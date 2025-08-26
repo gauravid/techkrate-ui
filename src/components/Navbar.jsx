@@ -117,7 +117,7 @@ const Navbar = () => {
             onMouseEnter={() => setHoveredLink(0)}
             onMouseLeave={() => setHoveredLink(null)}
           >
-            <span>HOME</span>
+            <span>Home</span>
             <span className="underline absolute left-0 bottom-0 w-full h-[2px] bg-current"></span>
           </Link>
           <Link
@@ -127,7 +127,7 @@ const Navbar = () => {
             onMouseEnter={() => setHoveredLink(1)}
             onMouseLeave={() => setHoveredLink(null)}
           >
-            <span>ABOUT US</span>
+            <span>About us</span>
             <span className="underline absolute left-0 bottom-0 w-full h-[2px] bg-current"></span>
           </Link>
           <div
@@ -137,7 +137,7 @@ const Navbar = () => {
             onMouseLeave={() => setHoveredLink(null)}
           >
             <span className="relative inline-block">
-              PRODUCTS
+              Products
               <span className="underline absolute left-0 bottom-0 w-full h-[2px] bg-current transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             </span>
 
@@ -157,7 +157,7 @@ const Navbar = () => {
             onMouseEnter={() => setHoveredLink(3)}
             onMouseLeave={() => setHoveredLink(null)}
           >
-            <span>BLOGS</span>
+            <span>Blogs</span>
             <span className="underline absolute left-0 bottom-0 w-full h-[2px] bg-current"></span>
           </Link>
         </div>

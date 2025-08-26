@@ -4,6 +4,7 @@ import ServiceSection from "../components/ServiceSection";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
+import ThirdSection from "../components/ThirdSection";
 
 const Home = () => {
   return (
