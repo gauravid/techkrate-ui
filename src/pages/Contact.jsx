@@ -107,7 +107,7 @@ function Contact() {
           <div className="space-y-6 text-base">
             <div className="flex items-center space-x-4">
               <FontAwesomeIcon icon={faPhone} className="text-[#1d4ed8] w-5" />
-              <p>+91-9990547098</p>
+              <p>+91-1203107109</p>
             </div>
             <div className="flex items-center space-x-4">
               <FontAwesomeIcon icon={faEnvelope} className="text-[#1d4ed8] w-5" />

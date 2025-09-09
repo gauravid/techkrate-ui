@@ -25,8 +25,8 @@ export default function Footer() {
         <div className="flex flex-col">
           <h3 className="text-lg font-bold mb-3">Company</h3>
           <ul className="flex flex-col gap-2 text-white/40">
-            <li><a href="#" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent transition">About Us</a></li>
-            <li><a href="#" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent transition">Blogs</a></li>
+            <li><a href="/about" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent transition">About Us</a></li>
+            <li><a href="/blogs" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent transition">Blogs</a></li>
           </ul>
         </div>
 
@@ -51,10 +51,23 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-4 mt-2">
-              <a href="https://www.linkedin.com/company/techkrate/" className="hover:text-[#1d4ed8] transition">
+              
+              <a 
+                  href="https://www.linkedin.com/company/techkrate/" 
+                  className="hover:text-[#1d4ed8] transition" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+              >
                 <FaLinkedinIn />
               </a>
-              <a href="#" className="hover:text-[#1d4ed8]  transition"><FaYoutube /></a>
+              <a 
+                 href="https://www.youtube.com/@techkrate4281" 
+                 className="hover:text-[#1d4ed8] transition" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+              >
+                <FaYoutube />
+              </a>
             </div>
           </div>
         </div>
