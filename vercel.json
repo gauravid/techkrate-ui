@@ -1,11 +1,15 @@
 {
     "routes": [
         {
-            "src": "/privacypolicy",
+            "src": "/addblog",
             "dest": "/"
         },
          {
             "src": "/termsandconditions",
+            "dest": "/"
+        },
+        {
+            "src": "/privacypolicy",
             "dest": "/"
         }
     ]
