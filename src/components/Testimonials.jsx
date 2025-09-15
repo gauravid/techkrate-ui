@@ -43,7 +43,7 @@ export default function Testimonials() {
   const intervalRef = useRef(null);
   const startTimeRef = useRef(null);
 
-  const startInterval = (delay = 5000 - elapsedTime) => {
+  const startInterval = (delay = 3000 - elapsedTime) => {
     startTimeRef.current = Date.now();
 
     progressRefs.current[currentIndex].style.transition = `width ${delay}ms linear`;
@@ -115,7 +115,7 @@ export default function Testimonials() {
             startInterval();
           }}
         >
-          <div className="absolute inset-0 p-4 sm:p-6 md:p-8 transition-transform duration-500 ease-out">
+          <div className="absolute inset-0 p-4 sm:p-6 md:p-8 transition-transform duration-300 ease-out">
             <div className="h-full flex flex-col justify-between">
               <p className="text-base sm:text-lg md:text-xl italic leading-relaxed">&quot;{testimonials[currentIndex].quote}&quot;</p>
               <div>

@@ -8,7 +8,7 @@ export default function Footer() {
 
       {/* Big Translucent TechKrate Text */}
       <h1 className="absolute left-0 right-0 uppercase font-weight bottom-0 translate-x-[-2%] translate-y-[12%] text-[20vw] md:text-[18.5vw] font-900 text-white/10 leading-none select-none whitespace-nowrap pointer-events-none text-center">
-        TechKrate
+        Techkrate
       </h1> 
 
       {/* Main Footer Content */}
@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Brand Info */}
         <div className="flex flex-col">
           <h2 className="text-3xl font-Helix hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent transition font-extrabold mb-2">
-            TechKrate
+            Techkrate
           </h2>
         </div>
 
