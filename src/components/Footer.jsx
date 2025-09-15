@@ -100,8 +100,8 @@ export default function Footer() {
         <p> © {new Date().getFullYear()} LURP Technologies Pvt. Ltd., All rights reserved</p>
         <div className="flex gap-6 mt-2 md:mt-0">
           <a href="/addblog" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent underline decoration-white hover:decoration-[#1d4ed8] transition">Add Blog</a>
-          <a href="/TermsAndConditions" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent underline decoration-white hover:decoration-[#1d4ed8] transition">Terms & Conditions</a>
-          <a href="/PrivacyPolicy" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent underline decoration-white hover:decoration-[#1d4ed8] transition">Privacy Policy</a>
+          <a href="/termsandconditions" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent underline decoration-white hover:decoration-[#1d4ed8] transition">Terms & Conditions</a>
+          <a href="/privacypolicy" className="hover:bg-gradient-to-tl from-[#0e1f7d] via-[#1d4ed8] to-[#4f33b1] hover:bg-clip-text hover:text-transparent underline decoration-white hover:decoration-[#1d4ed8] transition">Privacy Policy</a>
         </div>
       </div>
       

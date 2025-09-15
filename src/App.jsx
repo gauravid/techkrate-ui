@@ -43,8 +43,8 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/moval" element={<Product1 />} />
             <Route path="/cars" element={<Product2 />} />
-            <Route path="/TermsAndConditions" element={<TermsAndConditions/>} />
-            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+            <Route path="/termsandconditions" element={<TermsAndConditions/>} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
 
             <Route
