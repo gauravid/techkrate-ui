@@ -1,0 +1,12 @@
+{
+    "routes": [
+        {
+            "src": "/privacypolicy",
+            "dest": "/"
+        },
+         {
+            "src": "/termsandconditions",
+            "dest": "/"
+        }
+    ]
+}
