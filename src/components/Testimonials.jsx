@@ -32,6 +32,24 @@ const testimonials = [
     author: "Manoj Sharma",
     company: "RMS Associates",
   },
+  {
+    quote:
+      "I was hesitant to leave my 5-6 years-old desktop software, but as I started using MOVAL, within few months I am completely glad that we switched to it. The learning curve was minimal, and within a week, I was working faster than ever. The freedom to work from anywhere has improved my work-life balance tremendously.",
+    author: "Mr. Amit Shrivastava",
+    company: "Senior Surveyor, Raipur (Chhattisgarh)",
+  },
+   {
+    quote:
+      "Managing multiple offices was not easy but MOVAL's centralized platform changed everything. Now I have real-time visibility into all locations from a single dashboard. Whether it's in Raipur or any other location - I can monitor claims, allocate resources, and maintain quality standards seamlessly. Our inter-office coordination has improved by many fold",
+    author: "Mr. Shyam Chhabra",
+    company: "Director - ‘apt’ Insurance Surveyor & Loss Assessors Pvt. Ltd.",
+  },
+   {
+    quote:
+      "Just completed my first month with MOVAL. The difference is night and day. My old desktop system was very slow and system dependency was enormous. The peace of mind knowing everything is automatically backed up and secure is invaluable. The GST compliance features alone justify the investment.",
+    author: "Mr. Naveen Kumar N",
+    company: "Surveyor & Loss Assessor, Bengaluru (Karnataka)",
+  },
 ];
 
 export default function Testimonials() {
