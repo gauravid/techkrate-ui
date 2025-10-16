@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Helix';
+    src: url('./assets/fonts/Hellix-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Neue';
+    src: url('./assets/fonts/NeueHaasGroteskDisplay-Reg.woff2') format('woff2'),
+    url('./assets/fonts/NeueHaasGroteskDisplay-Medium.woff2') format('woff2'),
+    url('./assets/fonts/NeueHaasGroteskDisplay-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+/*   
+  body {
+    font-family: 'Helix', sans-serif;
+  } */
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Remove autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #0b1121 inset !important;
+  -webkit-text-fill-color: white !important;
+  caret-color: white !important;
+}
+
+select option {
+  background-color: #0b1121 !important;
+  color: white !important;
+}
+
+/* For Firefox */
+select {
+  scrollbar-width: thin;
+  scrollbar-color: #0b1121 transparent;
+}
+
+/* For Webkit browsers */
+select::-webkit-scrollbar {
+  width: 6px;
+}
+
+select::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: #0b1121;
+  border-radius: 3px;
+}
+
