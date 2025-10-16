@@ -164,12 +164,21 @@ const HeroSection = () => {
         ref={containerRef}
         className="overflow-hidden h-screen relative font-Helix"
       >
+
+        <img
+            src="/src/assets/image/AboutBG.png"
+            alt="About background placeholder"
+            className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        />
         <video
           className="absolute top-0 right-0 w-auto h-full object-cover z-0"
           autoPlay
           loop
           muted
           playsInline
+          loading='lazy'
+          preload="none"
+          poster="/src/assets/image/AboutBG.png"
         >
           <source src={bgVid} type="video/mp4" />
           Your browser does not support the video tag.
