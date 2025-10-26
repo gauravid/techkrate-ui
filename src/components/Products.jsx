@@ -49,7 +49,7 @@ const ProductCard = ({ name, logo, description, background, to }) => {
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-between p-4 text-white">
         {/* Top Section */}
-        <h3 className="text-2xl md:text-4xl font-bold tracking-tight font-Helix">
+        <h3 className="text-2xl md:text-3xl font-bold tracking-tight font-Helix">
           {name}
         </h3>
 
@@ -102,7 +102,7 @@ const Products = () => {
       </h1>
       <div 
         ref={containerRef}
-        className="grid grid-cols-1 text-2xl md:grid-cols-2 gap-8 w-full max-w-5xl"
+        className="grid grid-cols-1 text-2xl sm:grid-cols-2 gap-8 w-full max-w-5xl"
       >
         <ProductCard 
           name="" 

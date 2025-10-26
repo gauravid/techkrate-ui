@@ -191,11 +191,11 @@ const HeroSection = () => {
               ref={(el) => (textContainersRef.current[index] = el)}
               className="min-w-full h-full flex flex-col justify-center"
             >
-              <div className="text-left w-full px-4 md:px-8 lg:px-16 pt-12">
+              <div className="text-left w-full pl-8 pr-4 md:pl-16 md:pr-8 lg:pl-20 pt-12">
                 <div className="overflow-hidden">
                   <h2
                     ref={(el) => (heroTextRefs.current[index] = el)}
-                    className="text-6xl sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-tight mb-6 text-white"
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none lg:leading-tight mb-4 text-white"
                   >
                     {slide.title}
                   </h2>

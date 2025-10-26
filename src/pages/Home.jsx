@@ -8,13 +8,13 @@ import ThirdSection from "../components/ThirdSection";
 
 const Home = () => {
   return (
-    <div>
+    <main className="lg:ml-[250px]">
       <HeroSection />
       <ServiceSection />
       <Products />
       <Testimonials />
       <Footer />
-    </div>
+    </main>
   );
 };
 
