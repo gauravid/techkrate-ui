@@ -13,7 +13,7 @@ import Product1 from "./pages/Product1";
 import Product2 from "./pages/Product2";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndCondition";
-import LoadingScreen from './pages/LoadingScreen';  // Import LoadingScreen
+import LoadingScreen from "./pages/LoadingScreen";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,16 +22,16 @@ function App() {
   useEffect(() => {
     // Simulate an API call or something else that takes time
     const timer = setTimeout(() => {
-      setLoading(false);  // Hide loading screen after 2 seconds
+      setLoading(false); // Hide loading screen after 0.2s
     }, 200);
 
-    return () => clearTimeout(timer);  // Cleanup the timer
+    return () => clearTimeout(timer); // Cleanup timer
   }, []);
 
   return (
     <Router>
-      {loading && <LoadingScreen />}  {/* Display LoadingScreen while loading */}
-      
+      {loading && <LoadingScreen />} {/* Show LoadingScreen while loading */}
+
       {!loading && (
         <>
           <Navbar />
@@ -41,10 +41,10 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path="/moval" element={<Product1 />} />
-            <Route path="/cars" element={<Product2 />} />
-            <Route path="/termsandconditions" element={<TermsAndConditions/>} />
-            <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+            <Route path="/product/moval" element={<Product1 />} />
+            <Route path="/product/cars" element={<Product2 />} />
+            <Route path="/termsandconditions" element={<TermsAndConditions />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
 
             <Route
@@ -53,7 +53,13 @@ function App() {
             />
             <Route
               path="/addblog"
-              element={isAuthenticated ? <AddBlog /> : <Navigate to="/login" replace />}
+              element={
+                isAuthenticated ? (
+                  <AddBlog />
+                ) : (
+                  <Navigate to="/login" replace />
+                )
+              }
             />
           </Routes>
         </>

@@ -1,3 +1,14 @@
 html, body {
     background-color: black;
   }  
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+canvas {
+  background: radial-gradient(circle at center, #00111a 0%, #000000 100%);
+}
