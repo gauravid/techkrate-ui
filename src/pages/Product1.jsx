@@ -10,12 +10,15 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Footer from "../components/Footer";
 import Features from "../components/features";
+import GlobeScene from "../components/GlobeScene";
+
 
 // 🖼️ Import local images
 import feature1 from "../assets/image/feature1.png";
 import feature2 from "../assets/image/feature2.png";
 import feature3 from "../assets/image/feature3.png";
 import comp from "../assets/image/comp.png"
+import car from '../assets/video/car.mp4'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,6 +77,8 @@ const Product1 = () => {
           start: "top 90%",
         },
       }
+
+    
     );
 
     // CTA animation
@@ -99,14 +104,6 @@ const Product1 = () => {
     <div className="relative min-h-screen bg-black text-white font-sans">
       <div className="ml-0 lg:ml-[250px] transition-all duration-150">
 
-        {/* top-right logo */}
-        <div className="fixed right-6 top-6 z-40 hidden lg:block">
-          <img
-            src={topRightLogo}
-            alt="Top-right logo"
-            className="w-20 h-20 rounded-md shadow-md"
-          />
-        </div>
 
         {/* HERO SECTION */}
         <section
@@ -114,27 +111,28 @@ const Product1 = () => {
           className="relative h-[75vh] flex items-center justify-center overflow-hidden"
           aria-label="Hero"
         >
+
+          <video
+              src={car}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           
           <div className="absolute inset-0 bg-black/60" />
           <div
             ref={heroTextRef}
             className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center -translate-y-10"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
-              <span className="text-white">Moval</span>{" "}
-              <span className="text-blue-400">by Techkrate</span>
-            </h1>
+            
             <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Intelligent mobility platform — fleet orchestration, AI-powered
               routing, and real-time insights for smarter transport operations.
             </p>
             <div className="mt-8 flex items-center justify-center gap-4">
-              <a
-                href="/start"
-                className="inline-block text-white/80 border border-white/10 py-3 px-6 rounded-full hover:bg-white/10 transition"
-              >
-                Start Free Trial
-              </a>
+              
               <a
                 href="/product-demo"
                 className="inline-block text-white/80 border border-white/10 py-3 px-6 rounded-full hover:bg-white/10 transition"
@@ -156,15 +154,31 @@ const Product1 = () => {
 
         
         {/* WHY MOVAL SECTION */}
-<Features />
+      {/* WHY MOVAL SECTION */}
+<section className="py-16 bg-black flex justify-center">
+  <div className="max-w-5xl w-full px-6">
+    <Features />
+  </div>
+</section>
+
 
 {/* 🌍 Interactive 3D Globe Section */}
+{/* 🌍 Interactive 3D Globe Section */}
+<section className="relative w-full bg-black flex flex-col items-center justify-center my-16 py-12">
+  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-8 text-center tracking-wide">
+    What Our Customers Think
+  </h2>
+
+  <div className="w-full h-[500px] flex items-center justify-center">
+    <GlobeScene />
+  </div>
+</section>
 
 
         {/* CTA SECTION */}
         <section ref={ctaRef} className="py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-12">
-            <div className="rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 p-12 text-center shadow-lg">
+            <div className="rounded-2xl bg-gradient-to-r from-black-700 to-blue-500 p-12 text-center shadow-lg">
               <h3 className="text-3xl sm:text-4xl font-semibold text-white mb-4">
                 Ready to accelerate with Moval?
               </h3>
@@ -178,12 +192,6 @@ const Product1 = () => {
                   className="bg-white text-blue-700 font-semibold py-3 px-8 rounded-full"
                 >
                   Talk to Sales
-                </a>
-                <a
-                  href="/docs"
-                  className="text-white/90 border border-white/20 py-3 px-6 rounded-full"
-                >
-                  View Docs
                 </a>
               </div>
             </div>
