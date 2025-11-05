@@ -189,7 +189,7 @@ const Product1 = () => {
               <div className="flex items-center justify-center gap-4">
                 <a
                   href="/contact"
-                  className="bg-white text-blue-700 font-semibold py-3 px-8 rounded-full"
+                  className="bg-white text-black-700 font-semibold py-3 px-8 rounded-full"
                 >
                   Talk to Sales
                 </a>
