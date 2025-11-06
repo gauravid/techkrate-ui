@@ -1,16 +1,18 @@
 {
-    "routes": [
-        {
-            "src": "/addblog",
-            "dest": "/"
-        },
-         {
-            "src": "/termsandconditions",
-            "dest": "/"
-        },
-        {
-            "src": "/privacypolicy",
-            "dest": "/"
-        }
-    ]
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run build",
+  "routes": [
+    {
+      "src": "/addblog",
+      "dest": "/"
+    },
+    {
+      "src": "/termsandconditions",
+      "dest": "/"
+    },
+    {
+      "src": "/privacypolicy",
+      "dest": "/"
+    }
+  ]
 }
