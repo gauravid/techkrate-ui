@@ -53,30 +53,30 @@ export default function ThirdSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col justify-between bg-black text-white min-h-screen overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative flex flex-col justify-between bg-black text-white min-h-screen overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
     >
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
         <img
           src={CarsBg || "/placeholder.svg"}
           alt="Techkrate workspace"
-          className="w-full h-full object-cover rounded object-center"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black opacity-60"></div>
       </div>
 
       <div ref={decorationRef} className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-        <Circle className="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 text-white opacity-0 -translate-x-1/2 -translate-y-1/2" />
-        <Circle className="absolute bottom-0 right-0 w-80 h-80 sm:w-[35rem] sm:h-[35rem] md:w-[40rem] md:h-[40rem] text-white opacity-0 translate-x-1/4 translate-y-1/4" />
+        <Circle className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 text-white opacity-0 -translate-x-1/2 -translate-y-1/2" />
+        <Circle className="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[35rem] lg:h-[35rem] xl:w-[40rem] xl:h-[40rem] text-white opacity-0 translate-x-1/4 translate-y-1/4" />
       </div>
 
-      <div className="relative z-20 flex-grow flex flex-col lg:flex-row items-center justify-between py-12 sm:py-16 lg:py-24 max-w-7xl mx-auto w-full gap-8 lg:gap-16">
+      <div className="relative z-20 flex-grow flex flex-col lg:flex-row items-center justify-between py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 max-w-7xl mx-auto w-full gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
         
         {/* Heading Section */}
         <div className="flex flex-col items-start text-left w-full lg:w-1/2">
           <h2
             ref={headingRef}
-            className="font-Helix text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight"
+            className="font-Helix text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight tracking-tight"
           >
             Building a Legacy of Excellence 
           </h2>
@@ -86,7 +86,7 @@ export default function ThirdSection() {
         <div ref={contentRef} className="flex flex-col items-start text-left w-full lg:w-1/2">
           <p
             ref={paragraphRef}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-300 max-w-full lg:max-w-2xl"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-4 sm:mb-5 md:mb-6 lg:mb-7 xl:mb-8 text-gray-300 max-w-full lg:max-w-2xl leading-relaxed"
           >
             Techkrate is a SaaS and software development company. Our mission is
             to craft software solutions that simplify and enhance business
@@ -95,11 +95,11 @@ export default function ThirdSection() {
           <Link
             ref={linkRef}
             to="/About"
-            className="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full bg-white text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-black transition duration-300 ease-in-out"
+            className="group inline-flex items-center px-5 sm:px-6 md:px-7 lg:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 text-sm sm:text-base md:text-lg font-semibold rounded-full bg-white text-black hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-black transition duration-300 ease-in-out"
           >
             Discover More
             <ArrowRight
-              className="ml-3 h-5 w-5 sm:h-6 sm:w-6 transform group-hover:translate-x-1 transition-transform duration-300 ease-in-out"
+              className="ml-2 sm:ml-2.5 md:ml-3 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transform group-hover:translate-x-1 transition-transform duration-300 ease-in-out"
               aria-hidden="true"
             />
           </Link>

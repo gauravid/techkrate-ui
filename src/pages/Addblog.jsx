@@ -49,12 +49,12 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black pt-28">
-      <div className="w-full max-w-4xl p-8 space-y-6 bg-gray-900 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold text-center text-white">Add a New Blog</h2>
-        <form onSubmit={handleAddBlog} className="space-y-6">
+    <div className="flex items-center justify-center min-h-screen bg-black pt-20 sm:pt-24 md:pt-28 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 bg-gray-900 rounded-lg shadow-lg">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white">Add a New Blog</h2>
+        <form onSubmit={handleAddBlog} className="space-y-4 sm:space-y-6">
           <div>
-            <label htmlFor="title" className="block text-lg font-medium text-gray-300">
+            <label htmlFor="title" className="block text-base sm:text-lg font-medium text-gray-300">
               Blog Title
             </label>
             <input
@@ -63,12 +63,12 @@ const AddBlog = () => {
               placeholder="Enter blog title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 sm:px-4 py-2 mt-1 text-sm sm:text-base border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="secondTitle" className="block text-lg font-medium text-gray-300">
+            <label htmlFor="secondTitle" className="block text-base sm:text-lg font-medium text-gray-300">
               Second Title
             </label>
             <input
@@ -77,11 +77,11 @@ const AddBlog = () => {
               placeholder="Enter second title"
               value={secondTitle}
               onChange={(e) => setSecondTitle(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 sm:px-4 py-2 mt-1 text-sm sm:text-base border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           <div>
-            <label htmlFor="date" className="block text-lg font-medium text-gray-300">
+            <label htmlFor="date" className="block text-base sm:text-lg font-medium text-gray-300">
               Date
             </label>
             <input
@@ -89,12 +89,12 @@ const AddBlog = () => {
               id="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 sm:px-4 py-2 mt-1 text-sm sm:text-base border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="author" className="block text-lg font-medium text-gray-300">
+            <label htmlFor="author" className="block text-base sm:text-lg font-medium text-gray-300">
               Author
             </label>
             <input
@@ -103,12 +103,12 @@ const AddBlog = () => {
               placeholder="Enter author name"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 sm:px-4 py-2 mt-1 text-sm sm:text-base border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="imageUrl" className="block text-lg font-medium text-gray-300">
+            <label htmlFor="imageUrl" className="block text-base sm:text-lg font-medium text-gray-300">
               Image URL
             </label>
             <input
@@ -117,26 +117,26 @@ const AddBlog = () => {
               placeholder="Enter image URL"
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
-              className="w-full px-4 py-2 mt-1 border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 sm:px-4 py-2 mt-1 text-sm sm:text-base border border-gray-700 rounded-lg bg-gray-800 text-gray-300 focus:ring-blue-500 focus:border-blue-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="content" className="block text-lg font-medium text-gray-300">
+            <label htmlFor="content" className="block text-base sm:text-lg font-medium text-gray-300">
               Blog Content
             </label>
             <ReactQuill
               theme="snow"
               value={content}
               onChange={setContent}
-              className="bg-gray-800 mb-9 text-gray-300 rounded-lg"
+              className="bg-gray-800 mb-6 sm:mb-9 text-gray-300 rounded-lg"
               placeholder="Write your blog here..."
-              style={{ height: "1000px" }} // Adjust the height here
+              style={{ height: "600px", maxHeight: "800px" }} // Responsive height
             />
           </div>
           <button
             type="submit"
-            className="w-full px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+            className="w-full px-4 sm:px-6 py-2.5 sm:py-3 text-base sm:text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-colors duration-200"
           >
             Add Blog
           </button>

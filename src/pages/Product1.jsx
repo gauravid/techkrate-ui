@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Footer from "../components/Footer";
 import Features from "../components/features";
-import GlobeScene from "../components/GlobeScene";
+import GlobeScene from "../components/Globescene";
 
 
 // 🖼️ Import local images
@@ -163,16 +163,22 @@ const Product1 = () => {
 
 
 {/* 🌍 Interactive 3D Globe Section */}
-{/* 🌍 Interactive 3D Globe Section */}
-<section className="relative w-full bg-black flex flex-col items-center justify-center my-16 py-12">
-  <h2 className="text-3xl md:text-4xl font-semibold text-white mb-8 text-center tracking-wide">
+<section className="relative w-full bg-black flex flex-col items-center justify-center my-16 py-12 overflow-hidden">
+  {/* 🏷️ Heading above globe */}
+  <h2
+    className="text-3xl md:text-4xl font-semibold text-white mb-8 text-center tracking-wide relative z-20"
+  >
     What Our Customers Think
   </h2>
 
-  <div className="w-full h-[500px] flex items-center justify-center">
+  {/* 🌍 Globe Wrapper with lower z-index */}
+  <div
+    className="w-full h-[500px] flex items-center justify-center relative z-10"
+  >
     <GlobeScene />
   </div>
 </section>
+
 
 
         {/* CTA SECTION */}
@@ -182,14 +188,14 @@ const Product1 = () => {
               <h3 className="text-3xl sm:text-4xl font-semibold text-white mb-4">
                 Ready to accelerate with Moval?
               </h3>
-              <p className="text-blue-100 max-w-2xl mx-auto mb-8">
+              <p className="text-white-100 max-w-2xl mx-auto mb-8">
                 Start a pilot or schedule a demo — unlock smarter, greener, and
                 more efficient mobility operations.
               </p>
               <div className="flex items-center justify-center gap-4">
                 <a
                   href="/contact"
-                  className="bg-white text-black-700 font-semibold py-3 px-8 rounded-full"
+                  className="bg-white text-black font-semibold py-3 px-8 rounded-full"
                 >
                   Talk to Sales
                 </a>

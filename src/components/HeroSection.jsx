@@ -1,15 +1,11 @@
-
-
-"use client";
-
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import bgVid from "/bgVid.mp4";
 import ThirdSection from "./ThirdSection";
-import { ArrowRight, ChevronDown } from "lucide-react";  // ⬅️ Changed ArrowDown to ChevronDown
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -20,6 +16,7 @@ const HeroSection = () => {
   const subHeadingRefs = useRef([]);
   const buttonRef = useRef([]);
   const dotsRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const slides = [
     {
@@ -57,6 +54,14 @@ const HeroSection = () => {
   const [totalSlides] = useState(slides.length);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // ✅ Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const handleClick = (index) => {
     gsap.to(buttonRef.current[index], {
       scale: 0.95,
@@ -70,6 +75,42 @@ const HeroSection = () => {
   useEffect(() => {
     const textContainers = textContainersRef.current;
 
+    // ✅ Mobile: Simple vertical scroll with fade-in
+    if (isMobile) {
+      heroTextRefs.current.forEach((heroTextRef, index) => {
+        if (!heroTextRef) return;
+        
+        gsap.from(heroTextRef, {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: textContainersRef.current[index],
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        gsap.from(subHeadingRefs.current[index], {
+          opacity: 0,
+          y: 20,
+          duration: 1,
+          delay: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: textContainersRef.current[index],
+            start: "top 80%",
+            end: "top 30%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+      return;
+    }
+
+    // ✅ Desktop: Horizontal scroll animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
@@ -91,6 +132,8 @@ const HeroSection = () => {
     });
 
     heroTextRefs.current.forEach((heroTextRef, index) => {
+      if (!heroTextRef) return;
+      
       const words = heroTextRef.innerText.split(" ");
       heroTextRef.innerHTML = words
         .map(
@@ -135,21 +178,28 @@ const HeroSection = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [totalSlides]);
+  }, [totalSlides, isMobile]);
 
   const scrollToSlide = (index) => {
-    gsap.to(window, {
-      duration: 1.5,
-      scrollTo: {
-        y: window.innerWidth * index,
-        offsetY: 0,
-      },
-      ease: "power3.inOut",
-    });
-    setCurrentSlide(index);
+    if (isMobile) {
+      // Mobile: Smooth scroll to element
+      const element = textContainersRef.current[index];
+      element?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setCurrentSlide(index);
+    } else {
+      // Desktop: GSAP scroll
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: {
+          y: window.innerWidth * index,
+          offsetY: 0,
+        },
+        ease: "power3.inOut",
+      });
+      setCurrentSlide(index);
+    }
   };
 
-  // ⬇️ Function for Scroll Down Button
   const scrollToThirdSection = () => {
     gsap.to(window, {
       duration: 1.5,
@@ -162,62 +212,81 @@ const HeroSection = () => {
     <>
       <div
         ref={containerRef}
-        className="overflow-hidden h-screen relative font-Helix"
+        className={`overflow-hidden relative font-Helix ${
+          isMobile ? 'min-h-screen' : 'h-screen'
+        }`}
       >
-
+        {/* Background Image */}
         <img
-            src="/src/assets/image/AboutBG.png"
-            alt="About background placeholder"
-            className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          src="/src/assets/image/AboutBG.png"
+          alt="About background"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
         />
-        <video
-          className="absolute top-0 right-0 w-auto h-full object-cover z-0"
-          autoPlay
-          loop
-          muted
-          playsInline
-          loading='lazy'
-          preload="none"
-          poster="/src/assets/image/AboutBG.png"
-        >
-          <source src={bgVid} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-black bg-opacity-0 z-10"></div>
-        <div className="relative z-20 h-full flex font-Helix">
+        
+        {/* ✅ Background Video - Hidden on mobile for performance */}
+        {!isMobile && (
+          <video
+            className="absolute top-0 right-0 w-auto h-full object-cover z-0"
+            autoPlay
+            loop
+            muted
+            playsInline
+            loading="lazy"
+            preload="none"
+            poster="/src/assets/image/AboutBG.png"
+          >
+            <source src={bgVid} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+        
+        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+        
+        {/* ✅ Responsive flex direction */}
+        <div className={`relative z-20 h-full flex font-Helix ${
+          isMobile ? 'flex-col' : ''
+        }`}>
           {slides.map((slide, index) => (
             <div
               key={index}
               ref={(el) => (textContainersRef.current[index] = el)}
-              className="min-w-full h-full flex flex-col justify-center"
+              className={`${
+                isMobile 
+                  ? 'min-h-screen w-full' 
+                  : 'min-w-full h-full'
+              } flex flex-col justify-center`}
             >
-              <div className="text-left w-full pl-8 pr-4 md:pl-16 md:pr-8 lg:pl-20 pt-12">
+              {/* ✅ Responsive padding */}
+              <div className="text-left w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-8 sm:py-12 md:pt-16 lg:pt-12">
                 <div className="overflow-hidden">
+                  {/* ✅ Responsive font sizes */}
                   <h2
                     ref={(el) => (heroTextRefs.current[index] = el)}
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none lg:leading-tight mb-4 text-white"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight lg:leading-tight mb-3 sm:mb-4 md:mb-6 text-white"
                   >
                     {slide.title}
                   </h2>
                 </div>
+                {/* ✅ Responsive subheading */}
                 <p
                   ref={(el) => (subHeadingRefs.current[index] = el)}
-                  className="text-base sm:text-lg md:text-xl text-[#9C9C9C] max-w-3xl"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-[#9C9C9C] max-w-3xl mb-4 sm:mb-6"
                 >
                   {slide.subHeading}
                 </p>
+                {/* ✅ Responsive button */}
                 <Link
                   to={slide.link}
                   ref={(el) => (buttonRef.current[index] = el)}
                   onClick={() => handleClick(index)}
-                  className="connect-btn inline-block bg-white rounded-full text-black transition-all duration-150 hover:bg-black group overflow-hidden hover:border-white hover:text-white border-2 w-[170px] mt-5"
+                  className="connect-btn inline-block bg-white rounded-full text-black transition-all duration-150 hover:bg-black group overflow-hidden hover:border-white hover:text-white border-2 mt-3 sm:mt-5"
                 >
-                  <div className="flex items-center p-3 justify-center w-full">
-                    <span className="group-hover:text-white transition-all duration-300 inline-block">
+                  <div className="flex items-center px-4 sm:px-5 py-2.5 sm:py-3 justify-center">
+                    <span className="group-hover:text-white transition-all duration-300 inline-block text-sm sm:text-base">
                       Discover More
                     </span>
                     <ArrowRight
-                      className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300 ease-in-out"
+                      className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300 ease-in-out"
                       aria-hidden="true"
                     />
                   </div>
@@ -227,15 +296,19 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* Pagination Dots */}
+        {/* ✅ Responsive Pagination Dots */}
         <div
           ref={dotsRef}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30"
+          className={`absolute ${
+            isMobile 
+              ? 'bottom-20 sm:bottom-24' 
+              : 'bottom-6 sm:bottom-8'
+          } left-1/2 transform -translate-x-1/2 flex space-x-2 z-30`}
         >
           {slides.map((_, index) => (
             <div
               key={index}
-              className={`w-2.5 h-2.5 rounded-full bg-white cursor-pointer transition-all duration-300 ${
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-white cursor-pointer transition-all duration-300 ${
                 index === currentSlide ? "opacity-100 scale-125" : "opacity-50"
               }`}
               onClick={() => scrollToSlide(index)}
@@ -243,12 +316,17 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* ⬇️ Scroll Down Button */}
+        {/* ✅ Responsive Scroll Down Button */}
         <button
           onClick={scrollToThirdSection}
-          className="absolute bottom-10 right-8 z-30 bg-white/90 text-black p-3 rounded-full shadow-lg hover:bg-black hover:text-white transition duration-300 group"
+          className={`absolute ${
+            isMobile 
+              ? 'bottom-6 sm:bottom-8 right-4 sm:right-6 p-2.5 sm:p-3' 
+              : 'bottom-8 md:bottom-10 right-6 md:right-8 p-3'
+          } z-30 bg-white/90 text-black rounded-full shadow-lg hover:bg-black hover:text-white transition duration-300 group`}
+          aria-label="Scroll to next section"
         >
-          <ChevronDown className="h-7 w-7 group-hover:translate-y-1 transition-transform duration-300 ease-in-out" />
+          <ChevronDown className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 group-hover:translate-y-1 transition-transform duration-300 ease-in-out" />
         </button>
       </div>
 
@@ -260,4 +338,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-

@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     quote:
-      "Moval’s intuitive cloud platform and mobile app empower surveyors with state-of-the-art tools to execute precise inspections and deliver comprehensive reports effortlessly.",
+      "Moval's intuitive cloud platform and mobile app empower surveyors with state-of-the-art tools to execute precise inspections and deliver comprehensive reports effortlessly.",
     author: "Sandeep Saxena",
     company: "Surveyor & Loss Assessor",
   },
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     quote:
-      "Moval’s AI-driven modules seamlessly integrate precision and speed, revolutionizing motor survey processes with unparalleled claim analysis and automation.",
+      "Moval's AI-driven modules seamlessly integrate precision and speed, revolutionizing motor survey processes with unparalleled claim analysis and automation.",
     author: "Manoj Sharma",
     company: "RMS Associates",
   },
@@ -40,13 +40,13 @@ const testimonials = [
   },
    {
     quote:
-      "Managing multiple offices was not easy but MOVAL's centralized platform changed everything. Now I have real-time visibility into all locations from a single dashboard. Whether it's in Raipur or any other location - I can monitor claims, allocate resources, and maintain quality standards seamlessly. Our inter-office coordination has improved by many fold",
+      "Managing multiple offices was not easy but MOVAL's centralized platform changed everything. Now I have real-time visibility into all locations from a single dashboard. Whether it's in Raipur or any other location - I can monitor claims, allocate resources, and maintain quality standards seamlessly. Our inter-office coordination has improved by many fold",
     author: "Mr. Shyam Chhabra",
-    company: "Director - ‘apt’ Insurance Surveyor & Loss Assessors Pvt. Ltd.",
+    company: "Director - 'apt' Insurance Surveyor & Loss Assessors Pvt. Ltd.",
   },
    {
     quote:
-      "Just completed my first month with MOVAL. The difference is night and day. My old desktop system was very slow and system dependency was enormous. The peace of mind knowing everything is automatically backed up and secure is invaluable. The GST compliance features alone justify the investment.",
+      "Just completed my first month with MOVAL. The difference is night and day. My old desktop system was very slow and system dependency was enormous. The peace of mind knowing everything is automatically backed up and secure is invaluable. The GST compliance features alone justify the investment.",
     author: "Mr. Naveen Kumar N",
     company: "Surveyor & Loss Assessor, Bengaluru (Karnataka)",
   },
@@ -97,15 +97,17 @@ export default function Testimonials() {
   }, [currentIndex]);
 
   return (
-    <div className="w-full px-6 sm:px-12 md:px-20 lg:px-44 py-16 sm:py-24 md:py-32 bg-black">
-      <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 items-center">
+    <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 xl:px-44 py-12 sm:py-16 md:py-24 lg:py-32 bg-black">
+      <div className="grid gap-6 sm:gap-8 md:gap-10 lg:gap-12 lg:grid-cols-2 items-center">
         <div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">What our customers think</h2>
-          <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-white">
+            What our customers think
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-6 md:mb-7 lg:mb-8 text-white leading-relaxed">
             Delve into the experiences of our users who have leveraged our platform to optimize workflows and enhance precision. The following
             testimonials provide an overview of the substantial benefits our solutions have delivered.
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-1.5 sm:gap-2">
             {testimonials.map((_, index) => (
               <div key={index} className="h-1 w-full bg-gray-700 rounded-full overflow-hidden">
                 <div ref={(el) => (progressRefs.current[index] = el)} className="h-full bg-white rounded-full" style={{ width: "0%" }} />
@@ -115,7 +117,7 @@ export default function Testimonials() {
         </div>
 
         <div
-          className="relative h-[200px] sm:h-[350px] md:h-[300px] bg-white text-black overflow-hidden"
+          className="relative min-h-[280px] sm:min-h-[320px] md:min-h-[350px] lg:min-h-[380px] bg-white text-black overflow-hidden rounded-lg"
           onMouseEnter={() => {
             setIsPaused(true);
             pauseInterval();
@@ -133,12 +135,18 @@ export default function Testimonials() {
             startInterval();
           }}
         >
-          <div className="absolute inset-0 p-4 sm:p-6 md:p-8 transition-transform duration-300 ease-out">
+          <div className="absolute inset-0 p-4 sm:p-5 md:p-6 lg:p-8 transition-transform duration-300 ease-out">
             <div className="h-full flex flex-col justify-between">
-              <p className="text-base sm:text-lg md:text-xl italic leading-relaxed">&quot;{testimonials[currentIndex].quote}&quot;</p>
-              <div>
-                <p className="font-semibold text-sm sm:text-base md:text-lg">{testimonials[currentIndex].author}</p>
-                <p className="text-gray-900 text-xs sm:text-sm md:text-base">{testimonials[currentIndex].company}</p>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl italic leading-relaxed">
+                &quot;{testimonials[currentIndex].quote}&quot;
+              </p>
+              <div className="mt-4">
+                <p className="font-semibold text-sm sm:text-base md:text-lg">
+                  {testimonials[currentIndex].author}
+                </p>
+                <p className="text-gray-900 text-xs sm:text-sm md:text-base mt-1">
+                  {testimonials[currentIndex].company}
+                </p>
               </div>
             </div>
           </div>
