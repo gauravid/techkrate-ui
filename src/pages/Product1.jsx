@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Footer from "../components/Footer";
 import Features from "../components/features";
-import GlobeScene from "../components/Globescene";
+import GlobeScene from "../components/GlobeScene";
 
 
 // 🖼️ Import local images
