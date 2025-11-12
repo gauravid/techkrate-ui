@@ -52,6 +52,7 @@ function App() {
 
   return (
     <Router>
+      
       <Navbar />
       <PageWrapper>
         <Routes>

@@ -1,4 +1,4 @@
-// src/components/SmoothScroll.js
+// src/components/SmoothScroll.jsx
 "use client";
 
 import { useEffect } from 'react';
@@ -8,17 +8,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SmoothScroll = ({ children }) => {
+// Inner component that uses the Lenis instance
+const LenisSync = () => {
   const lenis = useLenis(({ scroll }) => {
-    // Sync ScrollTrigger to the Lenis instance
-    ScrollTrigger.update(scroll);
+    ScrollTrigger.update();
   });
 
   useEffect(() => {
-    // This part is crucial for syncing GSAP with Lenis
+    console.log('🔍 Lenis object:', lenis);
+    
     if (lenis) {
+      console.log('✅ Lenis initialized successfully!');
+      
       const raf = (time) => {
-        lenis.raf(time * 1000); // Lenis uses milliseconds, GSAP uses seconds
+        lenis.raf(time * 1000);
         ScrollTrigger.update();
       };
       
@@ -27,11 +30,37 @@ const SmoothScroll = ({ children }) => {
       return () => {
         gsap.ticker.remove(raf);
       };
+    } else {
+      console.log('❌ Lenis is NOT initialized');
     }
   }, [lenis]);
 
+  return null; // This component doesn't render anything
+};
+
+// Outer component that provides Lenis context
+const SmoothScroll = ({ children }) => {
+  console.log('🔵 SmoothScroll component rendered');
+
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true, smoothWheel: true }}>
+    <ReactLenis 
+      root 
+      options={{ 
+        lerp: 0.05, 
+        duration: 2, 
+        smoothTouch: false, // Changed to false - better for mobile
+        smoothWheel: true ,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.2,    // Adjust scroll speed
+        touchMultiplier: 2,
+        infinite: false,
+        autoResize: true,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      }}
+    >
+      <LenisSync /> {/* Sync component inside ReactLenis */}
       {children}
     </ReactLenis>
   );
